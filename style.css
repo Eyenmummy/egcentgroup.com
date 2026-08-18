@@ -1,0 +1,753 @@
+/* Egcent Group – Final Clean & Luxury style.css – 100% Working (Nov 2025) */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  overflow-x: hidden;
+  background: #fff;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.container {
+  width: 90%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+h1 {
+  font-size: 4.5rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 4rem;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: #ca9b52;
+  border-radius: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-block;
+  background: #0f172a;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(15, 23, 42, 0.2);
+}
+
+.btn-primary:hover {
+  background: #1e293b;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.3);
+}
+
+.btn-primary.small {
+  padding: 10px 20px;
+  font-size: 0.95rem;
+}
+
+.btn-secondary {
+  display: inline-block;
+  background: transparent;
+  border: 2px solid #0f172a;
+  color: #0f172a;
+  padding: 12px 30px;
+  border-radius: 8px;
+  margin-top: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  background: #0f172a;
+  color: #fff;
+}
+
+/* Navigation */
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.2rem 0;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0f172a;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  color: #1e293b;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #ca9b52;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  min-width: 220px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  padding: 1rem 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(8px);
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 0.75rem 1.5rem;
+  color: #334155;
+}
+
+.dropdown-menu a:hover {
+  background: #f8fafc;
+  color: #ca9b52;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: #0f172a;
+  border-radius: 3px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Hero */
+.hero {
+  height: 100vh;
+  min-height: 700px;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2850&q=80') center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  margin-top: 80px;
+}
+
+.hero h1 {
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.hero p {
+  font-size: 1.4rem;
+  max-width: 700px;
+  margin: 0 auto 2.5rem;
+  color: #f1f5f9;
+}
+
+/* Sections */
+.about,
+#properties,
+#services,
+#contact {
+  padding: 100px 0;
+}
+
+.about,
+#services,
+#contact {
+  background: #f8fafc;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-img img {
+  border-radius: 16px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.properties-grid,
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 2.5rem;
+}
+
+.property-card,
+.service-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: 0.4s;
+}
+
+.property-card:hover,
+.service-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.property-img {
+  position: relative;
+  overflow: hidden;
+}
+
+.property-img img {
+  transition: 0.6s;
+}
+
+.property-card:hover .property-img img {
+  transform: scale(1.1);
+}
+
+.tag {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: #ca9b52;
+  color: white;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+}
+
+.property-info,
+.service-card {
+  padding: 1.8rem;
+  text-align: left;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0.75rem 0;
+}
+
+/* Contact */
+.contact-content {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Footer */
+footer {
+  background: #0f172a;
+  color: #e2e8f0;
+  text-align: center;
+  padding: 2.5rem 0;
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  width: 56px;
+  height: 56px;
+  bottom: 20px;
+  right: 20px;
+  background: #25d366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  z-index: 9999;
+  border: 3px solid #fff;
+  transition: all 0.3s;
+}
+
+.whatsapp-float img {
+  width: 32px;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  background: #128c7e;
+}
+
+/* SOCIAL MEDIA MINI ICONS */
+.social-mini {
+  position: fixed;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 997;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-mini a {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.6;
+  transition: all 0.3s;
+}
+
+.social-mini img {
+  width: 18px;
+  height: 18px;
+  filter: grayscale(100%);
+  transition: all 0.3s;
+}
+
+.social-mini a:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+.social-mini a:hover img {
+  filter: grayscale(0%);
+}
+
+.social-mini a:nth-child(1):hover img {
+  filter: invert(1);
+}
+
+.social-mini a:nth-child(2):hover img {
+  filter: hue-rotate(320deg);
+}
+
+.social-mini a:nth-child(3):hover img {
+  filter: invert(27%) sepia(93%) hue-rotate(210deg) saturate(300%);
+}
+
+.social-mini a:nth-child(4):hover img {
+  filter: none;
+}
+
+/* ——————————————————— UNIVERSAL PROPERTY IMAGE SLIDER ——————————————————— */
+.property-slider {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px 16px 0 0;
+  height: 280px;
+  background: #000;
+}
+
+.property-slider .main-image {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.property-slider .main-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.7s ease;
+}
+
+.property-slider .main-image img.active {
+  opacity: 1;
+}
+
+.thumbnail-dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.thumbnail-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.thumbnail-dots .dot.active,
+.thumbnail-dots .dot:hover {
+  background: #ca9b52;
+  transform: scale(1.4);
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 26px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.prev-btn {
+  left: 12px;
+}
+
+.next-btn {
+  right: 12px;
+}
+
+.property-card:hover .prev-btn,
+.property-card:hover .next-btn {
+  opacity: 1;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  background: #ca9b52;
+  transform: translateY(-50%) scale(1.15);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: white;
+    flex-direction: column;
+    padding: 2rem 0;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-200%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s;
+  }
+
+  .nav-links.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .hero h1 {
+    font-size: 3.2rem;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+  }
+
+  .prev-btn,
+  .next-btn {
+    display: none;
+  }
+
+}
+
+/* ————— CONTACT SECTION UPGRADE (Fixed & Clean) ————— */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
+.contact-info {
+  background: #f8fafc;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.contact-details p {
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.contact-details a {
+  color: #ca9b52;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+.contact-form {
+  background: white;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #ca9b52;
+  box-shadow: 0 0 0 4px rgba(202, 155, 82, 0.15);
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 16px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* Mobile Responsive */
+@media (max-width: 992px) {
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .contact-info,
+  .contact-form {
+    padding: 2rem;
+  }
+}
+
+/* Bigger and better-fitted logo */
+/* Bigger, taller logo that fills the header height and is more visible */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  height: 100%;
+  /* Makes the logo area match header height */
+}
+
+.logo img {
+  height: 130px;
+  /* Tall - matches most header spaces */
+  width: 130px;
+  /* A bit wider for better visibility */
+  object-fit: contain;
+  /* Keeps proportions clean, no stretching */
+  margin-right: 9px;
+  /* Good spacing from text */
+  display: block;
+}
+
+/* Adjust slightly smaller on tablets */
+@media (max-width: 992px) {
+  .logo img {
+    height: 80px;
+    width: 90px;
+  }
+}
+
+/* On mobile phones - still visible but not overwhelming */
+@media (max-width: 768px) {
+  .logo img {
+    height: 70px;
+    width: 90px;
+  }
+}
+
+/* Very small screens - compact but clear */
+@media (max-width: 480px) {
+  .logo img {
+    height: 60px;
+    width: 75px;
+    margin-right: 12px;
+  }
+}
+
+/* Hero Banner - Your Custom Image + Subtle Golden Highlight */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  /* Full-screen height */
+  background-image: url('images/hero-banner.jpg');
+  /* ← Your new banner image */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Optional: nice parallax effect on desktop */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* Subtle golden overlay for elegant highlight */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom,
+      rgba(212, 175, 55, 0.12) 0%,
+      /* Soft golden glow at top */
+      rgba(212, 175, 55, 0.08) 20%,
+      rgba(0, 0, 0, 0.15) 60%,
+      rgba(0, 0, 0, 0.45) 100%
+      /* Darker at bottom for text readability */
+    );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Ensure text and buttons appear above the overlay */
+.hero-content,
+.hero h1,
+.hero p,
+.hero .hero-buttons {
+  position: relative;
+  z-index: 2;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+  /* Improves text visibility */
+}

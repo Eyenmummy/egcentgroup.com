@@ -1,0 +1,28 @@
+# Node
+node_modules/
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# OneDrive / temp
+~$*
+*.tmp
+
+# Build output
+dist/
+build/
+
+# Local Netlify folder
+.netlify

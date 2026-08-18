@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h2>Upload New Property</h2>
+  <form id="uploadForm" enctype="multipart/form-data">
+    Title: <input type="text" name="title"><br>
+    Price (₦): <input type="number" name="price"><br>
+    Address: <input type="text" name="address"><br>
+    Beds: <input type="number" name="beds"><br>
+    Baths: <input type="number" name="baths"><br>
+    Description: <textarea name="description"></textarea><br>
+    Images: <input type="file" name="images" multiple><br>
+    <button type="submit">Upload</button>
+  </form>
+  <script>
+    document.getElementById('uploadForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const token = localStorage.getItem('token');
+      if (!token) return alert('Log in first');
+
+      const res = await fetch('/.netlify/functions/upload-properties', {
+        method: 'POST',
+        body: formData,
+        headers: { Authorization: 'Bearer ' + token }
+      });
+
+      const text = await res.text();
+      if (!res.ok) {
+        return alert(text || 'Upload failed');
+      }
+
+      alert(text || 'Property added!');
+    });
+  </script>
+</body>
+</html>
