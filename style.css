@@ -162,6 +162,36 @@ h3 {
   color: #ca9b52;
 }
 
+/* Auth buttons in header */
+.auth-buttons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.auth-buttons a {
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.auth-buttons a.btn-primary.small {
+  padding: 9px 14px;
+}
+
+.auth-buttons a.btn-secondary.small {
+  padding: 8px 12px;
+}
+
+/* Ensure auth buttons stack nicely on small screens */
+@media (max-width: 768px) {
+  .auth-buttons {
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
 .dropdown {
   position: relative;
 }
