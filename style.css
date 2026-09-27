@@ -928,7 +928,8 @@ h2 { font-size: clamp(2rem, 3vw, 2.8rem); }
 /* Quieter listing details leave more attention on the photographs. */
 body { font-size: 0.95rem; }
 h1, h2, h3 { font-weight: 400; letter-spacing: -0.015em; }
-h2 { font-size: clamp(1.8rem, 2.5vw, 2.35rem); }
+h2 { font-size: clamp(2.15rem, 3vw, 3rem); }
+.section-title { line-height: 1.2; }
 .hero h1 { font-size: clamp(2.3rem, 4.1vw, 3.7rem); }
 .hero p { font-size: clamp(1rem, 1.4vw, 1.17rem); }
 .property-card, .service-card {
