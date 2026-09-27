@@ -915,9 +915,15 @@ h2 { font-size: clamp(2rem, 3vw, 2.8rem); }
   box-shadow: 0 0 0 4px rgba(227, 187, 117, 0.15);
 }
 .social-mini {
-  background: rgba(8, 21, 33, 0.92);
-  border: 1px solid var(--hairline);
+  background: transparent;
+  border: 0;
+  box-shadow: none;
 }
+.social-mini a { opacity: 1; }
+.social-mini img { filter: invert(1); }
+.social-mini a:hover img { filter: invert(1); }
+.contact-details .btn-primary { color: var(--night); }
+.whatsapp-float { opacity: 1; visibility: visible; }
 footer { background: #05101a; color: var(--muted); }
 
 @media (max-width: 768px) {
