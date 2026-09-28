@@ -65,6 +65,22 @@
 @media(max-width:780px){.offer-section .offer-grid article{grid-template-columns:34px 1fr 25px;gap:.8rem;padding:1.5rem 0}.offer-section .offer-grid article p{grid-column:2;grid-row:2}.offer-section .offer-grid article:after{grid-column:3;grid-row:1}.division-split{grid-template-columns:1fr}.division-split>img{height:430px}}
 /* Contact page alignment with the supplied reference. */
 .contact-page-hero{background-image:linear-gradient(90deg,rgba(23,17,29,.9),rgba(23,17,29,.7)),url('images/hero-banner.jpg')}
+
+/* Landing page movement and the dark location marquee. */
+.hero-slide{transform:scale(1);will-change:transform,opacity}
+.hero-slide.active{animation:hero-drift 7s linear both}
+@keyframes hero-drift{from{transform:scale(1)}to{transform:scale(1.1)}}
+.hero-inner>.eyebrow,.hero-inner>h1,.hero-inner>p:not(.eyebrow),.hero-inner>.hero-actions{animation:hero-arrive .85s cubic-bezier(.22,1,.36,1) both}
+.hero-inner>h1{animation-delay:.13s}
+.hero-inner>p:not(.eyebrow){animation-delay:.3s}
+.hero-inner>.hero-actions{animation-delay:.46s}
+@keyframes hero-arrive{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.location-ribbon{background:#17111d;border:0;color:#a99dac;padding:1.35rem 0;font:italic 400 clamp(1.08rem,1.65vw,1.55rem)/1.4 var(--display)}
+.location-ribbon-track{display:flex;width:max-content;animation:location-marquee 48s linear infinite}
+.location-ribbon-track>span{flex:none;white-space:nowrap}
+.location-ribbon i{color:#9c80af;font-size:.55rem;margin:0 clamp(1.2rem,2.5vw,2.4rem)}
+@keyframes location-marquee{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.hero-slide.active,.hero-inner>.eyebrow,.hero-inner>h1,.hero-inner>p:not(.eyebrow),.hero-inner>.hero-actions,.location-ribbon-track{animation:none}}
 .contact-grid{grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,4vw,4rem);align-items:start}
 .contact-panel{background:#25192d;border-radius:22px}
 .contact-panel h2{font-size:1.55rem;margin-bottom:1.6rem}
@@ -89,3 +105,11 @@
 .brand img{mix-blend-mode:normal;filter:none;width:130px;height:auto}
 .footer-logo{mix-blend-mode:normal;opacity:1;width:160px}
 @media(max-width:600px){.brand img{width:105px;height:auto}}
+/* Social controls stay visible without a solid background over property imagery. */
+.social-links a{width:36px;height:36px;opacity:1;visibility:visible}
+.social-links img{width:17px;height:17px;filter:invert(1);display:block}
+.social-rail{position:fixed;right:18px;bottom:94px;z-index:49;display:flex;flex-direction:column;gap:7px}
+.social-rail a{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(94,61,112,.7);border-radius:50%;background:transparent;backdrop-filter:blur(5px);box-shadow:0 2px 12px rgba(20,12,26,.22);opacity:1;visibility:visible}
+.social-rail a:hover,.social-rail a:focus-visible{border-color:#fff;box-shadow:0 3px 15px rgba(20,12,26,.4);transform:translateX(-2px)}
+.social-rail img{display:block;width:19px;height:19px;filter:invert(35%) sepia(15%) saturate(1150%) hue-rotate(225deg) contrast(125%) drop-shadow(0 0 2px white)}
+@media(max-width:600px){.social-rail{right:14px;bottom:76px;gap:5px}.social-rail a{width:35px;height:35px}.social-rail img{width:17px;height:17px}}
