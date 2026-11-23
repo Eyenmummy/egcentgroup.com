@@ -111,5 +111,12 @@
 .social-rail{position:fixed;right:18px;bottom:94px;z-index:49;display:flex;flex-direction:column;gap:7px}
 .social-rail a{display:grid;place-items:center;width:40px;height:40px;border:1px solid rgba(94,61,112,.7);border-radius:50%;background:transparent;backdrop-filter:blur(5px);box-shadow:0 2px 12px rgba(20,12,26,.22);opacity:1;visibility:visible}
 .social-rail a:hover,.social-rail a:focus-visible{border-color:#fff;box-shadow:0 3px 15px rgba(20,12,26,.4);transform:translateX(-2px)}
-.social-rail img{display:block;width:19px;height:19px;filter:invert(35%) sepia(15%) saturate(1150%) hue-rotate(225deg) contrast(125%) drop-shadow(0 0 2px white)}
+.social-rail img{display:block;width:19px;height:19px;filter:invert(1)}
 @media(max-width:600px){.social-rail{right:14px;bottom:76px;gap:5px}.social-rail a{width:35px;height:35px}.social-rail img{width:17px;height:17px}}
+
+/* Side rail: solid brand-colour buttons with white logos, visible on any background */
+.social-rail a{border:1px solid rgba(255,255,255,.7);box-shadow:0 2px 10px rgba(0,0,0,.35)}
+.social-rail a[aria-label="X"]{background:#000}
+.social-rail a[aria-label="Instagram"]{background:linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%)}
+.social-rail a[aria-label="Facebook"]{background:#1877f2}
+.social-rail a[aria-label="TikTok"]{background:#000}
